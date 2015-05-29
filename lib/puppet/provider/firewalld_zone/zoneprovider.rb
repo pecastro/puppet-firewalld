@@ -88,7 +88,7 @@ Puppet::Type.type(:firewalld_zone).provide :zoneprovider, :parent => Puppet::Pro
         if @resource[:forward_ports]
           @resource[:forward_ports].each do |forward_port|
             fw_prt = zone.add_element 'forward-port'
-            fw_prt.add_attribute('port', forward_port['port'])
+            fw_prt.add_attribute('port', forward_port['portid'])
             fw_prt.add_attribute('protocol', forward_port['protocol'])
             if forward_port['to_port']
               fw_prt.add_attribute('to-port', forward_port['to_port'])
